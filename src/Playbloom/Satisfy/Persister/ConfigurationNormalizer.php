@@ -83,6 +83,11 @@ class ConfigurationNormalizer implements NormalizerInterface, DenormalizerInterf
             if (!empty($item['installation-source'])) {
                 $repository->setInstallationSource($item['installation-source']);
             }
+
+            if (!empty($item['htaccess'])) {
+                $repository->setHtAccessUsers($item['htaccess']);
+            }
+            
             $list[$repository->getId()] = $repository;
         }
 
