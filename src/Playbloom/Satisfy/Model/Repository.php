@@ -18,6 +18,12 @@ class Repository implements RepositoryInterface
      */
     private $installationSource = 'dist';
 
+    /**
+     * @var string
+     * @SerializedName("htaccess")
+     */
+    private $htAccessUsers = '';
+
     public function __construct(string $url = '', string $type = 'git')
     {
         $this->url = $url;
@@ -95,4 +101,22 @@ class Repository implements RepositoryInterface
 
         return $this;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getHtAccessUsers(): string
+    {
+        return $this->htAccessUsers;
+    }
+
+   /**
+     * {@inheritdoc}
+     */
+    public function setHtAccessUsers(string $htAccessUsers): RepositoryInterface
+    {
+        $this->htAccessUsers = $htAccessUsers;
+
+        return $this;
+    } 
 }
